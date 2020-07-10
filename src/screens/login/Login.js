@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, ImageBackground } from 'react-native';
 import { Input, Button } from '../../components';
+import { Navigation } from 'react-native-navigation';
 const image = require('../../res/images/appBg.png');
 
-const Login = () => {
+const Login = props => {
   const [creds, setCreds] = useState({
     email: '',
     password: '',
@@ -38,6 +39,16 @@ const Login = () => {
             style={styles.textInput}
           />
           <Button title={'Login'} onPress={onLoginClick} />
+          <Button
+            title={'Register'}
+            onPress={() =>
+              Navigation.push(props.componentId, {
+                component: {
+                  name: 'rentals.RegisterScreen',
+                },
+              })
+            }
+          />
         </View>
       </ImageBackground>
     </View>
