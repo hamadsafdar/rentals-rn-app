@@ -5,10 +5,16 @@ const bottomTabs = {
         children: [
           {
             component: {
-              name: '',
+              name: 'rentals.ExploreScreen',
             },
           },
         ],
+        options: {
+          bottomTab: {
+            // icon: '',
+            text: 'Explore',
+          },
+        },
       },
     },
     {
@@ -16,32 +22,16 @@ const bottomTabs = {
         children: [
           {
             component: {
-              name: '',
+              name: 'rentals.InboxScreen',
             },
           },
         ],
-      },
-    },
-    {
-      stack: {
-        children: [
-          {
-            component: {
-              name: '',
-            },
+        options: {
+          bottomTab: {
+            // icon: '',
+            text: 'Inbox',
           },
-        ],
-      },
-    },
-    {
-      stack: {
-        children: [
-          {
-            component: {
-              name: '',
-            },
-          },
-        ],
+        },
       },
     },
   ],

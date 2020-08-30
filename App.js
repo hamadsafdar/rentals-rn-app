@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigation } from 'react-native-navigation';
 import { authRoot, mainRoot } from './src/navigation';
-import { Login, Register } from './src/screens';
+import { Login, Register, Explore, Inbox } from './src/screens';
 import { Provider } from 'react-redux';
 import { store } from './src/store';
 
@@ -15,11 +15,21 @@ Navigation.registerComponent('rentals.RegisterScreen', () => props => (
     <Register {...props} />
   </Provider>
 ));
+Navigation.registerComponent('rentals.ExploreScreen', () => props => (
+  <Provider store={store}>
+    <Explore {...props} />
+  </Provider>
+));
+Navigation.registerComponent('rentals.InboxScreen', () => props => (
+  <Provider store={store}>
+    <Inbox {...props} />
+  </Provider>
+));
 
 Navigation.events().registerAppLaunchedListener(async () => {
-  Navigation.setRoot(authRoot);
+  Navigation.setRoot(isLoggedIn() ? mainRoot : authRoot);
 });
 
 const isLoggedIn = state => {
-  return state.user.isLoggedIn;
+  return false;
 };
